@@ -5,8 +5,12 @@ use crate::byte_chunk::{ByteChunk, Chunk};
 /// Counts the chars in a string slice.
 ///
 /// Runs in O(N) time.
-#[inline]
 pub fn count(text: &str) -> usize {
+    count_impl::<Chunk>(text.as_bytes())
+}
+
+#[inline]
+pub fn count_inline(text: &str) -> usize {
     count_impl::<Chunk>(text.as_bytes())
 }
 
