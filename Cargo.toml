@@ -21,7 +21,7 @@ simd = [] # Enable explicit SIMD optimizations on supported platforms.
 
 [dev-dependencies]
 proptest = "1.0"
-criterion = { version = "0.3", features = ["html_reports"] }
+criterion = { version = "0.4", features = ["html_reports"] }
 
 #-----------------------------------------
 
