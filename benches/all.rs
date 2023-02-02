@@ -15,10 +15,10 @@ fn all(c: &mut Criterion) {
         //     "en_0100",
         //     fs::read_to_string("benches/text/en_100.txt").expect("Cannot find benchmark text."),
         // ),
-        (
-            "en_1000",
-            fs::read_to_string("benches/text/en_1000.txt").expect("Cannot find benchmark text."),
-        ),
+        // (
+        //     "en_1000",
+        //     fs::read_to_string("benches/text/en_1000.txt").expect("Cannot find benchmark text."),
+        // ),
         (
             "en_10000",
             fs::read_to_string("benches/text/en_10000.txt").expect("Cannot find benchmark text."),
@@ -28,14 +28,14 @@ fn all(c: &mut Criterion) {
         //     "jp_0102",
         //     fs::read_to_string("benches/text/jp_102.txt").expect("Cannot find benchmark text."),
         // ),
-        (
-            "jp_1001",
-            fs::read_to_string("benches/text/jp_1001.txt").expect("Cannot find benchmark text."),
-        ),
-        (
-            "jp_10000",
-            fs::read_to_string("benches/text/jp_10000.txt").expect("Cannot find benchmark text."),
-        ),
+        // (
+        //     "jp_1001",
+        //     fs::read_to_string("benches/text/jp_1001.txt").expect("Cannot find benchmark text."),
+        // ),
+        // (
+        //     "jp_10000",
+        //     fs::read_to_string("benches/text/jp_10000.txt").expect("Cannot find benchmark text."),
+        // ),
     ];
 
     //---------------------------------------------------------
