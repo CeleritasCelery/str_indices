@@ -14,6 +14,10 @@ pub fn count_inline(text: &str) -> usize {
     count_impl::<Chunk>(text.as_bytes())
 }
 
+pub fn count_scalar(text: &str) -> usize {
+    count_impl::<usize>(text.as_bytes())
+}
+
 /// Converts from byte-index to char-index in a string slice.
 ///
 /// If the byte is in the middle of a multi-byte char, returns the index of
@@ -115,6 +119,7 @@ fn to_byte_idx_impl<T: ByteChunk>(text: &str, char_idx: usize) -> usize {
 
 #[inline(always)]
 pub(crate) fn count_impl<T: ByteChunk>(text: &[u8]) -> usize {
+    assert_eq!(16, core::mem::size_of::<T>());
     if text.len() < T::SIZE {
         // Bypass the more complex routine for short strings, where the
         // complexity hurts performance.

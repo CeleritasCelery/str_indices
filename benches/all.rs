@@ -63,6 +63,17 @@ fn all(c: &mut Criterion) {
         }
     }
 
+    {
+        let mut group = c.benchmark_group("chars::count_scalar");
+        for (text_name, text) in test_strings.iter() {
+            group.bench_function(*text_name, |bench| {
+                bench.iter(|| {
+                    black_box(chars::count_scalar(text));
+                })
+            });
+        }
+    }
+
     // // chars::from_byte_idx()
     // {
     //     let mut group = c.benchmark_group("chars::from_byte_idx");
