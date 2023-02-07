@@ -124,20 +124,31 @@ fn all(c: &mut Criterion) {
     //     }
     // }
 
-    // //---------------------------------------------------------
-    // // UTF16.
+    //---------------------------------------------------------
+    // UTF16.
 
-    // // utf16::count()
-    // {
-    //     let mut group = c.benchmark_group("utf16::count");
-    //     for (text_name, text) in test_strings.iter() {
-    //         group.bench_function(*text_name, |bench| {
-    //             bench.iter(|| {
-    //                 black_box(utf16::count(text));
-    //             })
-    //         });
-    //     }
-    // }
+    // utf16::count()
+    {
+        let mut group = c.benchmark_group("utf16::count");
+        for (text_name, text) in test_strings.iter() {
+            group.bench_function(*text_name, |bench| {
+                bench.iter(|| {
+                    black_box(utf16::count(text));
+                })
+            });
+        }
+    }
+
+    {
+        let mut group = c.benchmark_group("utf16::count_inline");
+        for (text_name, text) in test_strings.iter() {
+            group.bench_function(*text_name, |bench| {
+                bench.iter(|| {
+                    black_box(utf16::count_inline(text));
+                })
+            });
+        }
+    }
 
     // // utf16::count_surrogates()
     // {
@@ -177,20 +188,32 @@ fn all(c: &mut Criterion) {
     //     }
     // }
 
-    // //---------------------------------------------------------
-    // // Lines (unicode).
+    //---------------------------------------------------------
+    // Lines (unicode).
 
-    // // lines::count_breaks()
-    // {
-    //     let mut group = c.benchmark_group("lines::count_breaks");
-    //     for (text_name, text) in test_strings.iter() {
-    //         group.bench_function(*text_name, |bench| {
-    //             bench.iter(|| {
-    //                 black_box(lines::count_breaks(text));
-    //             })
-    //         });
-    //     }
-    // }
+    // lines::count_breaks()
+    {
+        let mut group = c.benchmark_group("lines::count_breaks");
+        for (text_name, text) in test_strings.iter() {
+            group.bench_function(*text_name, |bench| {
+                bench.iter(|| {
+                    black_box(lines::count_breaks(text));
+                })
+            });
+        }
+    }
+
+    {
+        let mut group = c.benchmark_group("lines::count_breaks_inline");
+        for (text_name, text) in test_strings.iter() {
+            group.bench_function(*text_name, |bench| {
+                bench.iter(|| {
+                    black_box(lines::count_breaks_inline(text));
+                })
+            });
+        }
+    }
+
 
     // // lines::from_byte_idx()
     // {
@@ -218,20 +241,30 @@ fn all(c: &mut Criterion) {
     //     }
     // }
 
-    // //---------------------------------------------------------
-    // // Lines (LF).
+    //---------------------------------------------------------
+    // Lines (LF).
 
-    // // lines_lf::count_breaks()
-    // {
-    //     let mut group = c.benchmark_group("lines_lf::count_breaks");
-    //     for (text_name, text) in test_strings.iter() {
-    //         group.bench_function(*text_name, |bench| {
-    //             bench.iter(|| {
-    //                 black_box(lines_lf::count_breaks(text));
-    //             })
-    //         });
-    //     }
-    // }
+    // lines_lf::count_breaks()
+    {
+        let mut group = c.benchmark_group("lines_lf::count_breaks");
+        for (text_name, text) in test_strings.iter() {
+            group.bench_function(*text_name, |bench| {
+                bench.iter(|| {
+                    black_box(lines_lf::count_breaks(text));
+                })
+            });
+        }
+    }
+    {
+        let mut group = c.benchmark_group("lines_lf::count_breaks_inline");
+        for (text_name, text) in test_strings.iter() {
+            group.bench_function(*text_name, |bench| {
+                bench.iter(|| {
+                    black_box(lines_lf::count_breaks_inline(text));
+                })
+            });
+        }
+    }
     // {
     //     // Version implemented with stdlib functions,
     //     // for performance comparisons.  Note: this

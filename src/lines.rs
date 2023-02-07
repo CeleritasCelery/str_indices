@@ -19,6 +19,10 @@ use crate::byte_chunk::{ByteChunk, Chunk};
 ///
 /// Runs in O(N) time.
 #[inline]
+pub fn count_breaks_inline(text: &str) -> usize {
+    count_breaks_impl::<Chunk>(text.as_bytes())
+}
+
 pub fn count_breaks(text: &str) -> usize {
     count_breaks_impl::<Chunk>(text.as_bytes())
 }

@@ -6,8 +6,13 @@ use crate::byte_chunk::{ByteChunk, Chunk};
 /// were encoded as utf16.
 ///
 /// Runs in O(N) time.
-#[inline]
 pub fn count(text: &str) -> usize {
+    crate::chars::count_impl::<Chunk>(text.as_bytes())
+        + count_surrogates_impl::<Chunk>(text.as_bytes())
+}
+
+#[inline]
+pub fn count_inline(text: &str) -> usize {
     crate::chars::count_impl::<Chunk>(text.as_bytes())
         + count_surrogates_impl::<Chunk>(text.as_bytes())
 }
